@@ -16,6 +16,10 @@
 - [ ] Chatting with human
 - [ ] Suggestion
 - [x] Sentiment analysis
+- [ ] Make a friend / consult buddy
+- [ ] Good thought
+- [ ] Quiz me
+- [ ] Ping me
 
 ## Folder Structure
 ```
