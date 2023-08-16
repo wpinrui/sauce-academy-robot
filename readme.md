@@ -14,7 +14,7 @@
 - [ ] Consult booking
 - [x] Chatting
 - [ ] Chatting with human
-- [ ] Suggestion
+- [x] Suggestion
 - [x] Sentiment analysis
 - [ ] Make a friend / consult buddy
 - [ ] Good thought
