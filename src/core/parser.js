@@ -9,11 +9,13 @@ import Help from '../features/help/help';
 import ChatPositive from '../features/chat/chatPositive';
 import ChatNegative from '../features/chat/chatNegative';
 import Suggest from '../features/suggest/suggest';
+import Schedule from '../features/schedule/schedule';
 
-const CLASSES = [About, Greeting, Start, Help, Suggest];
+const CLASSES = [About, Greeting, Start, Help, Suggest, Schedule];
 
 // eslint-disable-next-line no-useless-escape
-const replacePunctuationWithSpace = (str) => str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ' ');
+const punctuationRegex = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
+const replacePunctuationWithSpace = (str) => str.replace(punctuationRegex, ' ');
 
 export default async function botParse(bot, msg) {
   // Logic for determining exchange type
