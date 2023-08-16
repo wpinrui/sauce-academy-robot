@@ -3,14 +3,13 @@
 ## Planned Features
 - [x] About
 - [x] Help
-- [ ] Consult
 - [x] Greeting
-- [ ] Mission schedule
-- [ ] Lecture link
+- [x] Mission schedule
+- [ ] Lecture link (needs to be updated every week)
+- [ ] Ed link
 - [ ] Lecture recording
-- [ ] Lecture feedback
-- [ ] Content
-- [ ] Reflection feedback
+- [ ] Content (needs to be updated every week)
+- [ ] Reflection feedback (feedback session needs to be updated every week)
 - [ ] Consult booking
 - [x] Chatting
 - [ ] Chatting with human
@@ -18,7 +17,6 @@
 - [x] Sentiment analysis
 - [ ] Make a friend / consult buddy
 - [ ] Good thought
-- [ ] Quiz me
 - [ ] Ping me
 
 ## Folder Structure
