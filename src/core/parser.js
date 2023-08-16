@@ -8,8 +8,9 @@ import Failure from '../features/failure/failure';
 import Help from '../features/help/help';
 import ChatPositive from '../features/chat/chatPositive';
 import ChatNegative from '../features/chat/chatNegative';
+import Suggest from '../features/suggest/suggest';
 
-const CLASSES = [About, Greeting, Start, Help];
+const CLASSES = [About, Greeting, Start, Help, Suggest];
 
 // eslint-disable-next-line no-useless-escape
 const replacePunctuationWithSpace = (str) => str.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ' ');
