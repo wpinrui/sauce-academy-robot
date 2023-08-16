@@ -47,6 +47,15 @@ export default async function botParse(bot, msg) {
     extras: {
       la: 0,
       walao: -1,
+      ok: 1,
+      okay: 1,
+      okie: 1,
+      thx: 1,
+      nvm: -1,
+      nevermind: -1,
+      kk: -1,
+      k: -1,
+      kthx: 1,
     },
   };
   const result = sentiment.analyze(messageText, options);
@@ -59,11 +68,11 @@ export default async function botParse(bot, msg) {
     negativeWords: result.negative.map((word) => word.toLowerCase()),
   };
   console.log(`Message: ${messageText}`);
-  console.log(`Score: ${sentimentObject.score}`);
+  console.log(`Score: ${sentimentObject.comparative}`);
 
-  if (sentimentObject.score > 0) {
+  if (sentimentObject.comparative >= 1.5) {
     await ChatPositive.handler(bot, msg);
-  } else if (sentimentObject.score < 0) {
+  } else if (sentimentObject.comparative <= -1.5) {
     await ChatNegative.handler(bot, msg);
   } else {
     await Failure.handler(bot, msg);

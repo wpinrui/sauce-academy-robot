@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import Authenticate from './core/authenticate';
 import botParse from './core/parser';
 import State from './core/state';
+import Failure from './features/failure/failure';
 
 dotenv.config();
 
@@ -19,5 +20,10 @@ bot.on('message', async (msg) => {
     return;
   }
   // Successful authentication
+  if (Failure.isCommand(msg)) {
+    Failure.handler(bot, Failure.parseMsg(msg));
+    return;
+  }
+
   await botParse(bot, msg);
 });
