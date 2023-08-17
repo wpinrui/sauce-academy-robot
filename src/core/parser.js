@@ -10,8 +10,9 @@ import ChatPositive from '../features/chat/chatPositive';
 import ChatNegative from '../features/chat/chatNegative';
 import Suggest from '../features/suggest/suggest';
 import Schedule from '../features/schedule/schedule';
+import Edstem from '../features/edstem/edstem';
 
-const CLASSES = [About, Greeting, Start, Help, Suggest, Schedule];
+const CLASSES = [About, Greeting, Start, Help, Suggest, Schedule, Edstem];
 
 // eslint-disable-next-line no-useless-escape
 const punctuationRegex = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;

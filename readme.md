@@ -6,7 +6,7 @@
 - [x] Greeting
 - [x] Mission schedule
 - [ ] Lecture link (needs to be updated every week)
-- [ ] Ed link
+- [x] Ed link
 - [ ] Lecture recording
 - [ ] Content (needs to be updated every week)
 - [ ] Reflection feedback (feedback session needs to be updated every week)
