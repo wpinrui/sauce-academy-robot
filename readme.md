@@ -5,10 +5,9 @@
 - [x] Help
 - [x] Greeting
 - [x] Mission schedule
-- [ ] Lecture link (needs to be updated every week)
+- [x] Lecture link (needs to be updated every week)
 - [x] Ed link
 - [x] Lecture recording
-- [ ] Content (needs to be updated every week)
 - [ ] Reflection feedback (feedback session needs to be updated every week)
 - [ ] Consult booking
 - [x] Chatting
