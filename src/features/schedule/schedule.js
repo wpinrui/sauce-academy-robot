@@ -2,26 +2,26 @@
 import assignments from './scheduleData';
 
 export default class Schedule {
-  static relevantWords = [
-    'schedule',
-    'mission',
-    'missions',
-    'path',
-    'paths',
-    'quest',
-    'quests',
-    'contest',
-    'contests',
-    'when',
-    'due',
-    'submit',
-    'date',
-    'dates',
-    'assignment',
-    'assignments',
-    'homework',
-    'work',
-  ];
+  static relevantWords = {
+    'schedule': 8,
+    'mission': 4,
+    'missions': 4,
+    'path': 2,
+    'paths': 2,
+    'quest': 3,
+    'quests': 3,
+    'contest': 5,
+    'contests': 5,
+    'when': 1,
+    'due': 3,
+    'submit': 3,
+    'date': 2,
+    'dates': 2,
+    'assignment': 3,
+    'assignments': 3,
+    'homework': 4,
+    'work': 1,
+  };
 
   static handler = async (bot, msg) => {
     const { ongoing, upcoming } = Schedule.getAssignments();
@@ -105,8 +105,8 @@ export default class Schedule {
 
   static parseReadableDate(date) {
     const months = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December',
+      'January', 'February', 'March', 'April', 'May', 'June', 'July',
+      'August', 'September', 'October', 'November', 'December',
     ];
 
     const monthIndex = date.getMonth();

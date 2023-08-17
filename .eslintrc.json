@@ -10,6 +10,7 @@
     },
     "rules": {
       "max-len": 0,
-      "linebreak-style": 0
+      "linebreak-style": 0,
+      "quote-props": 0
     }
 }

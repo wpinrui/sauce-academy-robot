@@ -1,13 +1,12 @@
 import argparse
 from transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
 
 def main():
     parser = argparse.ArgumentParser(description='Generate a response using DialoGPT')
     parser.add_argument('message', type=str, help='The input message for which to generate a response')
     args = parser.parse_args()
-    tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-medium")
-    model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
+    tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-small")
+    model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-small")
 
     # Encode the user input message, add the eos_token and return a tensor in PyTorch
     new_user_input_ids = tokenizer.encode(args.message + tokenizer.eos_token, return_tensors='pt')

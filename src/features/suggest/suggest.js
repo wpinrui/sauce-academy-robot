@@ -1,10 +1,11 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-vars */
 import { App } from 'octokit';
 import State from '../../core/state';
 
 export default class Suggest {
-  static relevantWords = ['suggest'];
+  static relevantWords = { 'suggest': 10 };
 
   static createIssue = async (msg, keyword, description) => {
     const app = new App({
@@ -26,9 +27,9 @@ export default class Suggest {
     });
   };
 
-  static handler = async (bot, msg) => {
+  static handler = async (bot, msg, state) => {
     await bot.sendMessage(msg.chat.id, 'Please enter the keyword you think I should respond to.');
-    State.isBusy = true;
+    state.isBusy = true;
     const keywordMessage = await new Promise((resolve) => {
       bot.on('message', resolve);
     });
@@ -38,6 +39,6 @@ export default class Suggest {
     });
     await bot.sendMessage(msg.chat.id, 'Thanks for the suggestion! I\'ll pass it on to my creator.');
     await Suggest.createIssue(msg, keywordMessage.text, descriptionMessage.text);
-    State.isBusy = false;
+    state.isBusy = false;
   };
 }

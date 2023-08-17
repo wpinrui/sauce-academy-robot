@@ -12,7 +12,7 @@
 - [ ] Reflection feedback (feedback session needs to be updated every week)
 - [ ] Consult booking
 - [x] Chatting
-- [ ] Chatting with human
+- [ ] Chatting with human (askivan)
 - [x] Suggestion
 - [x] Sentiment analysis
 - [ ] Make a friend / consult buddy

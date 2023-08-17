@@ -11,34 +11,36 @@ import ChatNegative from '../features/chat/chatNegative';
 import Suggest from '../features/suggest/suggest';
 import Schedule from '../features/schedule/schedule';
 import Edstem from '../features/edstem/edstem';
+import Recording from '../features/recording/recording';
 
-const CLASSES = [About, Greeting, Start, Help, Suggest, Schedule, Edstem];
+const CLASSES = [About, Greeting, Start, Help, Suggest, Schedule, Edstem, Recording];
 
 // eslint-disable-next-line no-useless-escape
 const punctuationRegex = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
 const replacePunctuationWithSpace = (str) => str.replace(punctuationRegex, ' ');
 
-export default async function botParse(bot, msg) {
-  // Logic for determining exchange type
+export default async function botParse(bot, msg, state) {
   const messageText = msg.text;
   console.log(`\nMessage: ${messageText}`);
   let bestClass = null;
   let highestScore = 0;
   CLASSES.forEach((Class) => {
-    const score = Class.relevantWords.reduce((acc, word) => {
+    let score = 0;
+    // eslint-disable-next-line no-restricted-syntax
+    for (const word in Class.relevantWords) {
       if (replacePunctuationWithSpace(messageText).toLowerCase().split(' ').includes(word)) {
-        return acc + 2 * (1 / Class.relevantWords.length); // Account for classes having multiple relevant words
+        score += Class.relevantWords[word];
       }
-      return acc;
-    }, 0);
+    }
     console.log(`Class: ${Class.name}, Score: ${score}`);
     if (score > highestScore) {
       highestScore = score;
       bestClass = Class;
     }
   });
+
   if (bestClass) {
-    await bestClass.handler(bot, msg);
+    await bestClass.handler(bot, msg, state);
     return;
   }
 

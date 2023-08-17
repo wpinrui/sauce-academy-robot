@@ -12,7 +12,8 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 
 // Listen for incoming messages
 bot.on('message', async (msg) => {
-  if (State.isBusy) {
+  const state = new State();
+  if (state.isBusy) {
     return;
   }
   if (!Authenticate.isUserAuthenticated(msg.from.username)) {
@@ -25,5 +26,5 @@ bot.on('message', async (msg) => {
     return;
   }
 
-  await botParse(bot, msg);
+  await botParse(bot, msg, state);
 });
