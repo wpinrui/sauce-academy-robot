@@ -7,7 +7,7 @@
 - [x] Mission schedule
 - [ ] Lecture link (needs to be updated every week)
 - [x] Ed link
-- [ ] Lecture recording
+- [x] Lecture recording
 - [ ] Content (needs to be updated every week)
 - [ ] Reflection feedback (feedback session needs to be updated every week)
 - [ ] Consult booking
