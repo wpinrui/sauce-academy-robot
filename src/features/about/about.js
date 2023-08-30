@@ -7,6 +7,8 @@ export default class About {
     'abt': 1,
     'commands': 5,
     'command': 5,
+    'what can i do': 3,
+    'what can i say': 10,
   };
 
   static handler = async (bot, msg) => {
