@@ -1,4 +1,4 @@
-// Import the necessary packages and modules
+/* eslint-disable no-unused-vars */
 import TelegramBot from 'node-telegram-bot-api';
 import dotenv from 'dotenv';
 import Authenticate from './core/authenticate';
@@ -12,19 +12,18 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 
 // Listen for incoming messages
 bot.on('message', async (msg) => {
-  const state = new State();
-  if (state.isBusy) {
+  console.log(State.table);
+  if (State.isBusy(msg.chat.id)) {
     return;
   }
-  if (!Authenticate.isUserAuthenticated(msg.from.username)) {
-    bot.sendMessage(msg.chat.id, Authenticate.authenticationFailureMessage);
-    return;
-  }
+  // if (!Authenticate.isUserAuthenticated(msg.from.username)) {
+  //   bot.sendMessage(msg.chat.id, Authenticate.authenticationFailureMessage);
+  //   return;
+  // }
   // Successful authentication
   if (Failure.isCommand(msg)) {
     Failure.handler(bot, Failure.parseMsg(msg));
     return;
   }
-
-  await botParse(bot, msg, state);
+  await botParse(bot, msg);
 });

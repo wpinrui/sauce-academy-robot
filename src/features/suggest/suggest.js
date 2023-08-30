@@ -12,9 +12,6 @@ export default class Suggest {
       appId: process.env.GITHUB_APP_ID,
       privateKey: process.env.GITHUB_PRIVATE_KEY.replace(/\\n/g, '\n'),
     });
-
-    console.log(process.env.GITHUB_PRIVATE_KEY.replace(/\\n/g, '\n'));
-
     const octokit = await app.getInstallationOctokit(process.env.GITHUB_INSTALLATION_ID);
     await octokit.request('POST /repos/{owner}/{repo}/issues', {
       owner: 'wpinrui',
@@ -29,7 +26,7 @@ export default class Suggest {
 
   static handler = async (bot, msg, state) => {
     await bot.sendMessage(msg.chat.id, 'Please enter the keyword you think I should respond to.');
-    state.isBusy = true;
+    State.setBusy(msg.chat.id);
     const keywordMessage = await new Promise((resolve) => {
       bot.on('message', resolve);
     });
@@ -39,6 +36,6 @@ export default class Suggest {
     });
     await bot.sendMessage(msg.chat.id, 'Thanks for the suggestion! I\'ll pass it on to my creator.');
     await Suggest.createIssue(msg, keywordMessage.text, descriptionMessage.text);
-    state.isBusy = false;
+    State.setNotBusy(msg.chat.id);
   };
 }
