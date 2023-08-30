@@ -50,10 +50,6 @@ export default class Failure {
       } else {
         await bot.sendMessage(msg.chat.id, 'Oops! Something went wrong. 😟');
       }
-
-      if (Math.random() < 0.05) {
-        await bot.sendMessage(msg.chat.id, 'By the way, if you get sick of chatting with a bot, please feel free to chat with me instead @wpinrui 😊');
-      }
     } catch (error) {
       console.error('Error processing request:', error);
       await bot.sendMessage(msg.chat.id, 'An error occurred while processing your request. 😔');
