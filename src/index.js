@@ -12,7 +12,6 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
 
 // Listen for incoming messages
 bot.on('message', async (msg) => {
-  console.log(State.table);
   if (State.isBusy(msg.chat.id)) {
     return;
   }
