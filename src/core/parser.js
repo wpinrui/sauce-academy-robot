@@ -26,8 +26,8 @@ const replacePunctuationWithSpace = (str) => str.replace(punctuationRegex, ' ');
 
 export default async function botParse(bot, msg, state) {
   const messageText = msg.text;
-  const logMessage = `${messageText}\t${msg.from.username}\t${
-    msg.from.first_name} ${msg.from.last_name}\t${Date.now()}\n`;
+  const logMessage = `${messageText},${msg.from.username},${
+    msg.from.first_name} ${msg.from.last_name},${Date.now()}\n`;
   fs.appendFile('C:\\Users\\Ivan\\Documents\\GitHub\\cs1101sbot\\logs.csv', logMessage, (err) => {
     if (err) {
       console.error('Error writing to file:', err);
