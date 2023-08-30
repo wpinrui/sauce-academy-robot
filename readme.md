@@ -1,4 +1,4 @@
-# CS1101S BOT
+# Sauce Academy Robot
 
 ## Planned Features
 - [x] About
@@ -45,15 +45,27 @@ src
 
 ## Commands (for botfather)
 start - Say hi to SauceBot!
+
 about - About SauceBot (and its Saucecode)
+
 consult - [COMING SOON] Book a consult
+
 feedback - Tell me how to improve the reflections!
+
 hello - Say hi to SauceBot... again!
+
 help - Get the help you need
+
 join - Join the Telegram group
+
 recording - Rewatch the lectures
+
 schedule - See what's due soon
+
 slides - Download the reflection slides
+
 suggest - Suggest a feature for SauceBot
+
 zoom - Get the lecture link
+
 chat - Like chatgpt but less good
