@@ -13,12 +13,10 @@ export default class State {
 
   static setBusy(chatId) {
     State.table[chatId] = true;
-    console.log(State.table);
   }
 
   static setNotBusy(chatId) {
     State.table[chatId] = false;
-    console.log(State.table);
   }
 
   static setGpuBusy() {

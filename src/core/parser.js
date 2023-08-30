@@ -27,7 +27,6 @@ const replacePunctuationWithSpace = (str) => str.replace(punctuationRegex, ' ');
 
 export default async function botParse(bot, msg, state) {
   const messageText = msg.text;
-  console.log(`\nMessage: ${messageText}`);
   let bestClass = null;
   let highestScore = 0;
   CLASSES.forEach((Class) => {
@@ -38,7 +37,6 @@ export default async function botParse(bot, msg, state) {
         score += Class.relevantWords[word];
       }
     }
-    console.log(`Class: ${Class.name}, Score: ${score}`);
     if (score > highestScore) {
       highestScore = score;
       bestClass = Class;
