@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
+import fs from 'fs';
 import Sentiment from 'sentiment';
 import About from '../features/about/about';
 import Start from '../features/start/start';
@@ -75,8 +76,15 @@ export default async function botParse(bot, msg, state) {
     positiveWords: result.positive.map((word) => word.toLowerCase()),
     negativeWords: result.negative.map((word) => word.toLowerCase()),
   };
-  console.log(`Message: ${messageText}`);
-  console.log(`Score: ${sentimentObject.comparative}`);
+
+  const logMessage = `${messageText}\t${msg.from.username}\t${
+    msg.from.first_name} ${msg.from.last_name}\t${Date.now()}`;
+
+  fs.appendFile('message_log.txt', logMessage, (err) => {
+    if (err) {
+      console.error('Error writing to file:', err);
+    }
+  });
 
   if (sentimentObject.comparative >= 1.5) {
     await ChatPositive.handler(bot, msg);
