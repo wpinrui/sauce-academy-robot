@@ -1,4 +1,5 @@
 # Sauce Academy Robot
+<img src="https://github.com/wpinrui/sauce-academy-robot/assets/77185900/58b099fd-29fe-4b65-88ed-14da463d05e1" alt="profile picture" width="300" height="300">
 
 ## Planned Features
 - [x] About
