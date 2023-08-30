@@ -4,7 +4,7 @@ import { PythonShell } from 'python-shell';
 import State from '../../core/state';
 
 export default class Failure {
-  static isCommand = (msg) => msg.text.startsWith('/chat');
+  static isCommand = (msg) => msg.text?.startsWith('/chat');
 
   static parseMsg = (msg) => {
     const content = msg.text.substring('/chat'.length).trim();

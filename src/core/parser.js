@@ -22,7 +22,7 @@ const CLASSES = [About, Greeting, Start, Help, Suggest, Schedule, Edstem, Record
 
 // eslint-disable-next-line no-useless-escape
 const punctuationRegex = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
-const replacePunctuationWithSpace = (str) => str.replace(punctuationRegex, ' ');
+const replacePunctuationWithSpace = (str) => (str ? str.replace(punctuationRegex, ' ') : '');
 
 function getDateTime() {
   const date = new Date();
