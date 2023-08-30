@@ -16,6 +16,11 @@ export default class Failure {
   };
 
   static handler = async (bot, msg) => {
+    if (!msg.text) {
+      // handle images etc
+      await bot.sendMessage(msg.chat.id, 'Thanks for that :)');
+      return;
+    }
     if (msg.text === '') {
       await bot.sendMessage(msg.chat.id, 'To use the chat, type /chat followed by your prompt (or most prompts will be interpreted as a desire to chat.)');
       return;
