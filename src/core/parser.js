@@ -24,18 +24,21 @@ const CLASSES = [About, Greeting, Start, Help, Suggest, Schedule, Edstem, Record
 const punctuationRegex = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
 const replacePunctuationWithSpace = (str) => str.replace(punctuationRegex, ' ');
 
-function getDateInYYYYMMDD() {
+function getDateTime() {
   const date = new Date();
   const year = date.getFullYear();
   const month = `${date.getMonth() + 1}`.padStart(2, '0');
   const day = `${date.getDate()}`.padStart(2, '0');
-  return `${year}${month}${day}`;
+  const hour = `${date.getHours()}`.padStart(2, '0');
+  const minute = `${date.getMinutes()}`.padStart(2, '0');
+  const second = `${date.getSeconds()}`.padStart(2, '0');
+  return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 }
 
 export default async function botParse(bot, msg, state) {
   const messageText = msg.text;
   const logMessage = `${messageText},${msg.from.username},${
-    msg.from.first_name} ${msg.from.last_name},${getDateInYYYYMMDD()}\n`;
+    msg.from.first_name} ${msg.from.last_name},${getDateTime()}\n`;
   fs.appendFile('C:\\Users\\Ivan\\Documents\\GitHub\\cs1101sbot\\logs.csv', logMessage, (err) => {
     if (err) {
       console.error('Error writing to file:', err);
