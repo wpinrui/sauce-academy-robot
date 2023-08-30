@@ -38,3 +38,6 @@ yarn.lock
 # Output of npm's `npm ci` command
 npm-debug.log*
 npm-debug.log.*
+
+# logs
+logs.csv
