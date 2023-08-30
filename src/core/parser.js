@@ -16,8 +16,9 @@ import Zoom from '../features/zoom/zoom';
 import Feedback from '../features/feedback/feedback';
 import Group from '../features/group/group';
 import Slides from '../features/slides/slides';
+import Consult from '../features/consult/consult';
 
-const CLASSES = [About, Greeting, Start, Help, Suggest, Schedule, Edstem, Recording, Zoom, Feedback, Group, Slides];
+const CLASSES = [About, Greeting, Start, Help, Suggest, Schedule, Edstem, Recording, Zoom, Feedback, Group, Slides, Consult];
 
 // eslint-disable-next-line no-useless-escape
 const punctuationRegex = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
